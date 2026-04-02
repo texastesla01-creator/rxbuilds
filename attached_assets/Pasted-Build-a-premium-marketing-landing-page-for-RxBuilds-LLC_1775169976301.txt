@@ -1,0 +1,27 @@
+Build a premium marketing landing page for RxBuilds LLC, a physician-founded fintech company. The product is an iOS app called RxFinance (App Store: https://apps.apple.com/us/app/rxfinance/id6760018360) that helps independent physicians track 1099 income, manage solo 401(k), and optimize tax planning.
+
+Tech stack: React + Vite + TypeScript + Tailwind CSS + shadcn/ui. Frontend only — no backend needed.
+
+Color theme: Primary blue #0066CC, teal accent #14B8A6, dark charcoal #1F2937, white backgrounds.
+
+Build the following pages and route them in App.tsx:
+
+1. Landing Page (/)
+Sticky navbar with logo ("RxBuilds" in blue) and "Download on App Store" button linking to the App Store URL above
+Hero section: headline "Financial clarity for independent physicians.", subheadline about tracking 1099 income / solo 401(k) / tax planning, two CTA buttons ("Download Free" → App Store, "Learn More" → scroll), and an iPhone frame mockup on the right side
+Pricing: "3 Days Free / $9.99 per month"
+4 Feature cards: Income Tracking (track 1099 payments), Solo 401(k) Manager (maximize contributions), Tax Optimizer (quarterly estimates), Financial Dashboard (net worth snapshot)
+App screenshots gallery with a dark/light mode toggle — 4 dark screenshots + 3 light screenshots (I'll upload these as images)
+Comparison table comparing RxFinance vs. Generic Finance Apps vs. Accountant-only — show checkmarks/X's for features like "Physician-specific tax rules", "Solo 401(k) tracking", "Real-time 1099 dashboard", etc.
+About section with headline "Built by a physician, for physicians." and body copy: "RxFinance was born out of a real problem — managing the financial complexity of independent medical practice while seeing patients full-time. We built the tool we wished existed: one that understands 1099 income cycles, self-employment tax, and the unique retirement planning options available to physicians. No fluff. No generic advice. Just clarity." Include a "CLINICAL AI · MEDICAL FINTECH" tag line.
+CTA banner above footer: "Take control of your financial future" with App Store download button
+Footer with links to Privacy Policy, EULA, and Contact pages; copyright "© 2025 RxBuilds LLC. All rights reserved."
+2. Privacy Policy page (/privacy-policy)
+Use a clean legal layout. Contact email: teslatexas01@gmail.com
+
+3. EULA page (/eula)
+Standard End User License Agreement layout. Same contact email.
+
+4. Contact page (/contact)
+Simple contact page with email: teslatexas01@gmail.com
+

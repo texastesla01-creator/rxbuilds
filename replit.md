@@ -4,6 +4,16 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Artifacts
+
+### RxBuilds LLC – RxFinance (`artifacts/rxbuilds`)
+- Premium marketing landing page for RxBuilds LLC, a physician-founded fintech company
+- Product: RxFinance iOS app (App Store: https://apps.apple.com/us/app/rxfinance/id6760018360)
+- Frontend-only React + Vite + TypeScript + Tailwind CSS + shadcn/ui
+- Routes: `/` (landing), `/privacy-policy`, `/eula`, `/contact`
+- Colors: Primary blue #0066CC, Teal accent #14B8A6, Charcoal #1F2937
+- Contact email: teslatexas01@gmail.com
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces

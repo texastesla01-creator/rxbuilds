@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "RxBuilds LLC – RxFinance"
+version = "1.0.0"
+id = "artifacts/rxbuilds"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20014
+
+[services.development]
+run = "pnpm --filter @workspace/rxbuilds run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/rxbuilds", "run", "build" ]
+publicDir = "artifacts/rxbuilds/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20014"
+BASE_PATH = "/"
