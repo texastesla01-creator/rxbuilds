@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon } from "lucide-react";
+import { ArrowRight, CheckCircle2, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
@@ -249,45 +249,34 @@ export default function Home() {
 
       {/* About Section */}
       <section className="py-24 md:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div className="space-y-6">
-              <div className="text-sm font-bold tracking-wider text-accent uppercase">
-                CLINICAL AI · MEDICAL FINTECH
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 md:p-10 flex flex-col sm:flex-row gap-8 items-start"
+          >
+            <div className="flex-shrink-0">
+              <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center shadow-md">
+                <Stethoscope className="h-8 w-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+            </div>
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
                 Built by a physician, for physicians.
               </h2>
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  RxFinance was born out of a real problem — managing the financial complexity of independent medical practice while seeing patients full-time.
-                </p>
-                <p>
-                  We built the tool we wished existed: one that understands 1099 income cycles, self-employment tax, and the unique retirement planning options available to physicians.
-                </p>
-                <p className="font-medium text-foreground">
-                  No fluff. No generic advice. Just clarity.
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Founded by a board-certified vascular neurologist, RxBuilds develops clinical decision support apps and AI-powered tools built from real medical experience. From stroke care to physician finance — every product solves a problem we've lived firsthand.
+              </p>
+              <div className="pt-2 space-y-1">
+                <p className="font-semibold text-foreground">RxBuilds LLC</p>
+                <p className="text-sm font-bold tracking-widest text-primary uppercase">
+                  CLINICAL AI · MEDICAL FINTECH
                 </p>
               </div>
             </div>
-            <div className="relative h-[400px] rounded-3xl overflow-hidden bg-white flex items-center justify-center border border-gray-200 shadow-sm">
-               {/* Abstract clinical/financial graphic */}
-               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
-               <div className="relative z-10 w-3/4 h-3/4 flex flex-col justify-center gap-6 opacity-80">
-                 <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                   <div className="h-full w-3/4 bg-primary rounded-full"></div>
-                 </div>
-                 <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                   <div className="h-full w-1/2 bg-accent rounded-full"></div>
-                 </div>
-                 <div className="flex justify-between items-end h-24 mt-8 gap-4">
-                   {[40, 70, 45, 90, 65, 80, 100].map((h, i) => (
-                     <div key={i} className="w-full bg-primary/20 rounded-t-sm" style={{ height: `${h}%` }}></div>
-                   ))}
-                 </div>
-               </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
