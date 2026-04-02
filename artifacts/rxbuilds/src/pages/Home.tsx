@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Shield, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon } from "lucide-react";
+import { ArrowRight, CheckCircle2, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 
@@ -83,9 +83,6 @@ export default function Home() {
                 </Button>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center">
-                  <Shield className="h-4 w-4 mr-2 text-accent" /> Secure
-                </div>
                 <div className="flex items-center">
                   <CheckCircle2 className="h-4 w-4 mr-2 text-accent" /> iOS Exclusive
                 </div>
