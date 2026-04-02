@@ -199,47 +199,50 @@ export default function Home() {
       {/* Comparison Section */}
       <section className="py-24 bg-white border-y">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">Why generic apps fall short</h2>
-            <p className="text-lg text-muted-foreground">Physician income is different. Your software should be too.</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">Why Physicians Choose RxFinance</h2>
+            <p className="text-lg text-muted-foreground">Built by a physician, for physicians. Not a generic accounting tool.</p>
           </div>
-          
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[600px]">
-                <thead>
-                  <tr className="bg-gray-50 border-b">
-                    <th className="p-4 md:p-6 font-semibold text-muted-foreground w-1/3">Feature</th>
-                    <th className="p-4 md:p-6 font-bold text-primary text-center border-x bg-primary/5 w-1/4">RxFinance</th>
-                    <th className="p-4 md:p-6 font-semibold text-muted-foreground text-center w-1/5">Generic Apps</th>
-                    <th className="p-4 md:p-6 font-semibold text-muted-foreground text-center border-l w-1/5">Accountant</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y">
-                  {[
-                    { name: "Physician-specific tax rules", rx: true, generic: false, accountant: true },
-                    { name: "Solo 401(k) tracking", rx: true, generic: false, accountant: true },
-                    { name: "Real-time 1099 dashboard", rx: true, generic: true, accountant: false },
-                    { name: "Quarterly tax estimates", rx: true, generic: false, accountant: true },
-                    { name: "Mobile-first experience", rx: true, generic: true, accountant: false },
-                    { name: "Affordable monthly cost", rx: true, generic: true, accountant: false }
-                  ].map((row, i) => (
-                    <tr key={i} className="hover:bg-gray-50/50 transition-colors">
-                      <td className="p-4 md:p-6 text-sm md:text-base font-medium">{row.name}</td>
-                      <td className="p-4 md:p-6 text-center border-x bg-primary/5">
-                        {row.rx ? <CheckCircle2 className="h-5 w-5 text-primary mx-auto" /> : <span className="text-gray-300">-</span>}
-                      </td>
-                      <td className="p-4 md:p-6 text-center">
-                        {row.generic ? <CheckCircle2 className="h-5 w-5 text-gray-400 mx-auto" /> : <span className="text-gray-300">-</span>}
-                      </td>
-                      <td className="p-4 md:p-6 text-center border-l">
-                        {row.accountant ? <CheckCircle2 className="h-5 w-5 text-gray-400 mx-auto" /> : <span className="text-gray-300">-</span>}
-                      </td>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm min-w-[560px]">
+              <thead>
+                <tr className="bg-primary text-white">
+                  <th className="p-4 text-left font-semibold text-sm w-1/2">Feature</th>
+                  <th className="p-4 text-center font-semibold text-sm">RxFinance</th>
+                  <th className="p-4 text-center font-semibold text-sm">QuickBooks</th>
+                  <th className="p-4 text-center font-semibold text-sm">Wave</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { name: "1099 Income Tracking",              rx: "full",    qb: "partial", wave: "partial" },
+                  { name: "Physician-Specific Tax Deductions", rx: "full",    qb: "none",    wave: "none"    },
+                  { name: "Multiple Income Stream Dashboard",  rx: "full",    qb: "partial", wave: "partial" },
+                  { name: "Investment Portfolio Tracking",     rx: "full",    qb: "none",    wave: "none"    },
+                  { name: "Estimated Tax Payment Alerts",      rx: "full",    qb: "partial", wave: "none"    },
+                  { name: "SE Tax Optimization",               rx: "full",    qb: "none",    wave: "none"    },
+                  { name: "Mobile-First iOS App",              rx: "full",    qb: "partial", wave: "partial" },
+                  { name: "Solo 401(k) Tracking",              rx: "full",    qb: "none",    wave: "none"    },
+                  { name: "Price",                             rx: "$9.99/mo", qb: "$30+/mo", wave: "Free*"  },
+                ].map((row, i) => {
+                  const cell = (val: string) => {
+                    if (val === "full")    return <span className="text-[#10b981] text-xl font-bold">✓</span>;
+                    if (val === "partial") return <span className="text-gray-300 text-xl">◐</span>;
+                    if (val === "none")    return <span className="text-gray-300 text-xl">✗</span>;
+                    return <span className="text-sm font-medium text-muted-foreground">{val}</span>;
+                  };
+                  return (
+                    <tr key={i} className={`border-b border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
+                      <td className="p-4 text-sm font-medium text-foreground">{row.name}</td>
+                      <td className="p-4 text-center">{cell(row.rx)}</td>
+                      <td className="p-4 text-center">{cell(row.qb)}</td>
+                      <td className="p-4 text-center">{cell(row.wave)}</td>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
