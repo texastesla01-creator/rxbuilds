@@ -1,194 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Shield, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon, Briefcase, FileText, Landmark } from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 
-// Mockup Components
-const MockupDashboard = ({ isDark }: { isDark: boolean }) => (
-  <div className={`w-full h-full flex flex-col p-6 space-y-6 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-    <div className="flex justify-between items-center">
-      <span className="text-xl font-bold">Overview</span>
-      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-        <span className="text-xs font-bold text-primary">JD</span>
-      </div>
-    </div>
-    <div className={`p-4 rounded-2xl shadow-lg ${isDark ? 'bg-primary' : 'bg-primary text-white'}`}>
-      <span className="text-white/80 text-sm">Net Worth</span>
-      <div className="text-3xl font-bold mt-1 text-white">$452,890</div>
-      <div className="flex items-center mt-4 text-sm text-white/80">
-        <Activity className="h-4 w-4 mr-1" /> +12.5% this month
-      </div>
-    </div>
-    <div className="space-y-3">
-      <div className="text-sm font-semibold opacity-80">Recent 1099 Income</div>
-      {[
-        { title: "General Hospital", amount: "+$4,200", date: "Today" },
-        { title: "City Clinic", amount: "+$1,850", date: "Yesterday" },
-        { title: "Telehealth Consults", amount: "+$950", date: "Oct 12" }
-      ].map((item, i) => (
-        <div key={i} className={`flex justify-between items-center p-3 rounded-xl shadow-sm border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'}`}>
-          <div className="flex items-center">
-            <div className={`h-10 w-10 rounded-full flex items-center justify-center mr-3 ${isDark ? 'bg-accent/20' : 'bg-accent/10'}`}>
-              <DollarSign className="h-5 w-5 text-accent" />
-            </div>
-            <div>
-              <div className="text-sm font-semibold">{item.title}</div>
-              <div className="text-xs opacity-60">{item.date}</div>
-            </div>
-          </div>
-          <span className="text-sm font-bold text-primary">{item.amount}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+// Real app screenshots
+import darkEntry from "@assets/IMG_2617_1775170283879.jpeg";
+import darkPL from "@assets/IMG_2620_1775170283880.jpeg";
+import dark401k from "@assets/IMG_2619_1775170283881.jpeg";
+import darkTax from "@assets/IMG_2618_1775170283881.jpeg";
+import lightEntry from "@assets/Untitled_design_(12)_1775170283881.png";
+import lightTax from "@assets/Untitled_design_(9)_1775170283882.png";
+import light401k from "@assets/Untitled_design_(8)_1775170283882.png";
 
-const MockupTax = ({ isDark }: { isDark: boolean }) => (
-  <div className={`w-full h-full flex flex-col p-6 space-y-6 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-    <div className="flex justify-between items-center">
-      <span className="text-xl font-bold">Tax Optimizer</span>
-      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-        <FileText className="h-4 w-4 text-primary" />
-      </div>
-    </div>
-    
-    <div className={`p-5 rounded-2xl border shadow-sm ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'}`}>
-      <div className="flex justify-between items-center mb-4">
-        <span className="text-sm font-medium opacity-80">Q3 Estimated Tax</span>
-        <span className="text-xs font-semibold px-2 py-1 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">Due Sep 15</span>
-      </div>
-      <div className="text-3xl font-bold mb-1">$12,450</div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-4">
-        <div className="bg-primary h-2 rounded-full" style={{ width: '65%' }}></div>
-      </div>
-      <div className="flex justify-between text-xs mt-2 opacity-60">
-        <span>Saved: $8,100</span>
-        <span>Goal: $12,450</span>
-      </div>
-    </div>
-
-    <div className="space-y-3">
-      <div className="text-sm font-semibold opacity-80">Deductions</div>
-      {[
-        { title: "Medical Malpractice", amount: "$3,200", icon: Shield },
-        { title: "Continuing Ed", amount: "$1,450", icon: Briefcase },
-        { title: "Licensing Fees", amount: "$850", icon: FileText }
-      ].map((item, i) => (
-        <div key={i} className={`flex justify-between items-center p-3 rounded-xl shadow-sm border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'}`}>
-          <div className="flex items-center">
-            <div className={`h-8 w-8 rounded-full flex items-center justify-center mr-3 ${isDark ? 'bg-primary/20' : 'bg-primary/10'}`}>
-              <item.icon className="h-4 w-4 text-primary" />
-            </div>
-            <div className="text-sm font-medium">{item.title}</div>
-          </div>
-          <span className="text-sm font-semibold">{item.amount}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const Mockup401k = ({ isDark }: { isDark: boolean }) => (
-  <div className={`w-full h-full flex flex-col p-6 space-y-6 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-    <div className="flex justify-between items-center">
-      <span className="text-xl font-bold">Solo 401(k)</span>
-      <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
-        <Landmark className="h-4 w-4 text-accent" />
-      </div>
-    </div>
-
-    <div className="flex flex-col items-center justify-center py-6">
-      <div className="relative h-32 w-32">
-        <svg viewBox="0 0 100 100" className="h-full w-full transform -rotate-90">
-          <circle cx="50" cy="50" r="40" fill="transparent" stroke={isDark ? "#374151" : "#f3f4f6"} strokeWidth="12" />
-          <circle cx="50" cy="50" r="40" fill="transparent" stroke="#14B8A6" strokeWidth="12" strokeDasharray="251.2" strokeDashoffset="62.8" className="transition-all duration-1000" />
-          <circle cx="50" cy="50" r="40" fill="transparent" stroke="#0066CC" strokeWidth="12" strokeDasharray="251.2" strokeDashoffset="188.4" className="transition-all duration-1000" />
-        </svg>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xs opacity-80">Total</span>
-          <span className="text-lg font-bold">$42K</span>
-        </div>
-      </div>
-    </div>
-
-    <div className="space-y-4">
-      <div className={`p-4 rounded-xl border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'}`}>
-        <div className="flex justify-between items-center mb-2">
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-primary mr-2"></div>
-            <span className="text-sm font-medium">Employee</span>
-          </div>
-          <span className="text-sm font-bold">$22,500</span>
-        </div>
-        <div className="text-xs opacity-60 ml-5">Maxed out for 2024</div>
-      </div>
-      
-      <div className={`p-4 rounded-xl border ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'}`}>
-        <div className="flex justify-between items-center mb-2">
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-accent mr-2"></div>
-            <span className="text-sm font-medium">Employer</span>
-          </div>
-          <span className="text-sm font-bold">$19,500</span>
-        </div>
-        <div className="text-xs opacity-60 ml-5">Based on $145K net income</div>
-      </div>
-    </div>
-  </div>
-);
-
-const MockupIncome = ({ isDark }: { isDark: boolean }) => (
-  <div className={`w-full h-full flex flex-col p-6 space-y-6 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-    <div className="flex justify-between items-center">
-      <span className="text-xl font-bold">Income</span>
-      <Button size="sm" variant="ghost" className="h-8 px-2">Filter</Button>
-    </div>
-
-    <div className="flex items-end gap-2 h-32 pt-4 pb-2 border-b border-gray-200 dark:border-gray-700">
-      {[40, 65, 45, 80, 55, 90].map((h, i) => (
-        <div key={i} className="flex-1 flex flex-col justify-end items-center gap-1">
-          <div className="w-full bg-primary/20 dark:bg-primary/30 rounded-t-sm" style={{ height: `${h}%` }}>
-            <div className="w-full bg-primary rounded-t-sm" style={{ height: `${h * 0.6}%` }}></div>
-          </div>
-          <span className="text-[10px] opacity-60">{'JFMAMJ'[i]}</span>
-        </div>
-      ))}
-    </div>
-
-    <div className="space-y-3 pt-2">
-      <div className="flex justify-between text-sm">
-        <span className="font-semibold opacity-80">YTD Gross</span>
-        <span className="font-bold">$218,500</span>
-      </div>
-      
-      <div className="space-y-2 pt-2">
-        <div className="text-xs font-semibold opacity-60 uppercase tracking-wider">Top Sources</div>
-        {[
-          { name: "General Hospital", val: "$125,000", pct: "57%" },
-          { name: "City Clinic", val: "$65,000", pct: "30%" },
-          { name: "Telehealth", val: "$28,500", pct: "13%" }
-        ].map((src, i) => (
-          <div key={i} className={`flex items-center justify-between p-2 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
-            <span className="text-sm">{src.name}</span>
-            <div className="flex items-center gap-3">
-              <span className="text-xs opacity-60">{src.pct}</span>
-              <span className="text-sm font-medium">{src.val}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const PhoneFrame = ({ children }: { children: React.ReactNode }) => (
-  <div className="relative w-[280px] md:w-[300px] h-[580px] md:h-[620px] bg-[#1a1a1a] rounded-[40px] md:rounded-[48px] shadow-2xl overflow-hidden border-[6px] md:border-[8px] border-[#1a1a1a] flex-shrink-0 snap-center">
-    <div className="absolute top-0 inset-x-0 h-6 bg-[#1a1a1a] z-20 rounded-b-3xl mx-16"></div>
-    <div className="w-full h-full overflow-hidden bg-background">
-      {children}
-    </div>
+const PhoneFrame = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="relative w-[260px] md:w-[280px] bg-[#111] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#111] flex-shrink-0 snap-center">
+    <div className="absolute top-0 inset-x-0 h-5 bg-[#111] z-20 rounded-b-3xl mx-14 pointer-events-none"></div>
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-auto block"
+      loading="lazy"
+    />
   </div>
 );
 
@@ -200,12 +33,20 @@ export default function Home() {
     document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const screenshots = [
-    { id: 'dashboard', component: <MockupDashboard isDark={isDarkMode} /> },
-    { id: 'tax', component: <MockupTax isDark={isDarkMode} /> },
-    { id: '401k', component: <Mockup401k isDark={isDarkMode} /> },
-    { id: 'income', component: <MockupIncome isDark={isDarkMode} /> },
+  const darkScreenshots = [
+    { id: 'dark-entry', src: darkEntry, alt: "1099 Command Center — dark mode" },
+    { id: 'dark-tax', src: darkTax, alt: "Tax Analysis — dark mode" },
+    { id: 'dark-401k', src: dark401k, alt: "401k & Expenses — dark mode" },
+    { id: 'dark-pl', src: darkPL, alt: "Profit & Loss — dark mode" },
   ];
+
+  const lightScreenshots = [
+    { id: 'light-entry', src: lightEntry, alt: "1099 Command Center — light mode" },
+    { id: 'light-tax', src: lightTax, alt: "Tax Analysis — light mode" },
+    { id: 'light-401k', src: light401k, alt: "401k & Expenses — light mode" },
+  ];
+
+  const screenshots = isDarkMode ? darkScreenshots : lightScreenshots;
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -257,10 +98,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative mx-auto lg:mx-0 flex justify-center lg:justify-end"
             >
-              {/* iPhone Mockup CSS */}
-              <PhoneFrame>
-                <MockupDashboard isDark={false} />
-              </PhoneFrame>
+              <PhoneFrame src={darkEntry} alt="RxFinance 1099 Command Center" />
               
               {/* Decorative elements */}
               <div className="absolute -z-10 top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/5 to-accent/5 rounded-full blur-3xl"></div>
@@ -343,19 +181,16 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            {/* Scrollable container for mobile/tablet, grid for desktop */}
-            <div className="flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x snap-mandatory hide-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
-              {screenshots.slice(0, isDarkMode ? 4 : 3).map((shot) => (
+            <div className="flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
+              {screenshots.map((shot, i) => (
                 <div key={shot.id} className="flex justify-center snap-center shrink-0">
                   <motion.div
+                    key={shot.id}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
                   >
-                    <PhoneFrame>
-                      {shot.component}
-                    </PhoneFrame>
+                    <PhoneFrame src={shot.src} alt={shot.alt} />
                   </motion.div>
                 </div>
               ))}
