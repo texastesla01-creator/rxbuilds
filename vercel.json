@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/rxbuilds run build",
+  "buildCommand": "pnpm --filter @workspace/rxbuilds run build && cp -r artifacts/rxbuilds/dist ./dist",
   "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "framework": null
