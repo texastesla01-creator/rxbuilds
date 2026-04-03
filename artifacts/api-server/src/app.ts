@@ -1,23 +1,26 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
+import cookieParser from "cookie-parser";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const pinoHttp = require("pino-http");
+
 app.use(
   pinoHttp({
     logger,
     serializers: {
-      req(req) {
+      req(req: { id: string; method: string; url?: string }) {
         return {
           id: req.id,
           method: req.method,
           url: req.url?.split("?")[0],
         };
       },
-      res(res) {
+      res(res: { statusCode: number }) {
         return {
           statusCode: res.statusCode,
         };
@@ -26,6 +29,7 @@ app.use(
   }),
 );
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
