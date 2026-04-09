@@ -12,6 +12,22 @@ export function Footer() {
             </p>
           </div>
           <div className="space-y-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Products</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  RxFinance
+                </Link>
+              </li>
+              <li>
+                <Link href="/taxrx" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  TaxRx
+                  <span className="ml-1.5 text-[10px] font-bold text-accent">(Coming Soon)</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="space-y-4">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Legal</h4>
             <ul className="space-y-2">
               <li>
@@ -23,6 +39,16 @@ export function Footer() {
                 <Link href="/eula" className="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-eula">
                   EULA
                 </Link>
+              </li>
+              <li>
+                <a href="https://tax-rx-mobile.replit.app/privacy" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  TaxRx Privacy
+                </a>
+              </li>
+              <li>
+                <a href="https://tax-rx-mobile.replit.app/terms" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  TaxRx Terms
+                </a>
               </li>
             </ul>
           </div>

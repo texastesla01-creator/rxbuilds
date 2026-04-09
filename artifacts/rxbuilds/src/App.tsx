@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/Home";
+import TaxRx from "@/pages/TaxRx";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import EULA from "@/pages/EULA";
 import Contact from "@/pages/Contact";
@@ -20,6 +21,7 @@ function Router() {
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/taxrx" component={TaxRx} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/eula" component={EULA} />
           <Route path="/contact" component={Contact} />
