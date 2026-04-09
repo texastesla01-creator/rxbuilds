@@ -2,12 +2,32 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Activity, Calculator, BookOpen, ChevronDown, Heart, Shield,
-  Zap, Users, GraduationCap, Star, ArrowRight, CheckCircle
+  Zap, Users, GraduationCap, Star, ArrowRight, CheckCircle, Sun, Moon
 } from "lucide-react";
+
+// Dark mode screenshots
+import darkPrevent from "@assets/IMG_2933_1775745060054.jpeg";
+import darkPrimary from "@assets/IMG_2936_1775745060053.jpeg";
+import darkSecondary from "@assets/IMG_2939_1775745060053.jpeg";
+import darkLLT from "@assets/IMG_2940_1775745060053.jpeg";
+
+// Light mode screenshots
+import lightPrevent from "@assets/IMG_2934_1775745060054.jpeg";
+import lightPrimary from "@assets/IMG_2935_1775745060054.jpeg";
+import lightSecondary from "@assets/IMG_2937_1775745060054.jpeg";
+import lightLLT from "@assets/IMG_2941_1775745060053.jpeg";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/lipidiq/id6760669194";
 const SUPPORT_URL = "https://lipid-navigator.replit.app/support";
 const PRIVACY_URL = "https://lipid-navigator.replit.app/privacy";
+
+const PhoneFrame = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="relative w-[240px] md:w-[260px] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#1a1a2e] flex-shrink-0 snap-center"
+    style={{ backgroundColor: "#1a1a2e" }}>
+    <div className="absolute top-0 inset-x-0 h-5 z-20 rounded-b-3xl mx-14 pointer-events-none" style={{ backgroundColor: "#1a1a2e" }}></div>
+    <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
+  </div>
+);
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null);
@@ -100,8 +120,25 @@ const STAT_CHIPS = [
   { value: "iOS", label: "App Store" },
 ];
 
+const DARK_SHOTS = [
+  { id: "dark-prevent",   src: darkPrevent,   alt: "PREVENT Calculator — dark" },
+  { id: "dark-primary",   src: darkPrimary,   alt: "Primary Prevention — dark" },
+  { id: "dark-secondary", src: darkSecondary, alt: "Secondary Prevention — dark" },
+  { id: "dark-llt",       src: darkLLT,       alt: "LLT Reference — dark" },
+];
+
+const LIGHT_SHOTS = [
+  { id: "light-prevent",   src: lightPrevent,   alt: "PREVENT Calculator — light" },
+  { id: "light-primary",   src: lightPrimary,   alt: "Primary Prevention — light" },
+  { id: "light-secondary", src: lightSecondary, alt: "Secondary Prevention — light" },
+  { id: "light-llt",       src: lightLLT,       alt: "LLT Reference — light" },
+];
+
 export default function LipidIQ() {
   const [activeTab, setActiveTab] = useState("cardiologist");
+  const [isDarkScreenshots, setIsDarkScreenshots] = useState(true);
+
+  const shots = isDarkScreenshots ? DARK_SHOTS : LIGHT_SHOTS;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -289,8 +326,59 @@ export default function LipidIQ() {
         </div>
       </section>
 
+      {/* ── SCREENSHOT GALLERY ──────────────────────── */}
+      <section className="py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <FadeIn className="max-w-2xl">
+              <h2
+                className="text-3xl md:text-4xl font-bold mb-3"
+                style={{ fontFamily: "'DM Serif Display', serif" }}
+              >
+                See LipidIQ in action
+              </h2>
+              <p style={{ color: "#94a3b8" }}>
+                Clean, evidence-grounded screens — in both light and dark mode.
+              </p>
+            </FadeIn>
+            <div
+              className="flex items-center gap-3 p-2 rounded-full flex-shrink-0"
+              style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+            >
+              <Sun className={`h-4 w-4 transition-colors ${!isDarkScreenshots ? "text-blue-400" : "text-slate-500"}`} />
+              <button
+                onClick={() => setIsDarkScreenshots(!isDarkScreenshots)}
+                className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none"
+                style={{ backgroundColor: isDarkScreenshots ? "#3b82f6" : "rgba(255,255,255,0.2)" }}
+              >
+                <span
+                  className="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform"
+                  style={{ transform: isDarkScreenshots ? "translateX(22px)" : "translateX(4px)" }}
+                />
+              </button>
+              <Moon className={`h-4 w-4 transition-colors ${isDarkScreenshots ? "text-blue-400" : "text-slate-500"}`} />
+            </div>
+          </div>
+
+          <div className="flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
+            {shots.map((shot, i) => (
+              <div key={shot.id} className="flex justify-center snap-center shrink-0">
+                <motion.div
+                  key={shot.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  <PhoneFrame src={shot.src} alt={shot.alt} />
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TABBED SECTION ──────────────────────────── */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: "rgba(0,0,0,0.15)" }}>
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
             <h2
