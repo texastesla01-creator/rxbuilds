@@ -1,8 +1,52 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Calculator, TrendingUp, BarChart3, GitCompare, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2, Calculator, TrendingUp, BarChart3, GitCompare, Clock, Sun, Moon } from "lucide-react";
+
+// Dark mode screenshots
+import darkTax from "@assets/IMG_2901_1775699944673.jpeg";
+import dark401k from "@assets/IMG_2902_1775699944673.jpeg";
+import darkPL from "@assets/IMG_2903_1775699944673.jpeg";
+import darkSettings from "@assets/IMG_2894_1775699944673.jpeg";
+
+// Light mode screenshots
+import lightEntry from "@assets/IMG_2896_1775699944673.jpeg";
+import lightTax from "@assets/IMG_2898_1775699944673.jpeg";
+import light401k from "@assets/IMG_2899_1775699944673.png";
+import lightPL from "@assets/IMG_2900_1775699944673.jpeg";
+import lightSettings from "@assets/IMG_2895_1775699944673.jpeg";
+
+const PhoneFrame = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="relative w-[260px] md:w-[280px] bg-[#111] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#111] flex-shrink-0 snap-center">
+    <div className="absolute top-0 inset-x-0 h-5 bg-[#111] z-20 rounded-b-3xl mx-14 pointer-events-none"></div>
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-auto block"
+      loading="lazy"
+    />
+  </div>
+);
 
 export default function TaxRx() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const darkScreenshots = [
+    { id: "dark-tax",      src: darkTax,      alt: "Tax Breakdown — dark mode" },
+    { id: "dark-401k",     src: dark401k,     alt: "401k & Expenses — dark mode" },
+    { id: "dark-pl",       src: darkPL,       alt: "Profit & Loss — dark mode" },
+    { id: "dark-settings", src: darkSettings, alt: "Settings — dark mode" },
+  ];
+
+  const lightScreenshots = [
+    { id: "light-entry",    src: lightEntry,    alt: "Command Center — light mode" },
+    { id: "light-tax",      src: lightTax,      alt: "Tax Breakdown — light mode" },
+    { id: "light-401k",     src: light401k,     alt: "401k & Expenses — light mode" },
+    { id: "light-pl",       src: lightPL,       alt: "Profit & Loss — light mode" },
+    { id: "light-settings", src: lightSettings, alt: "Settings — light mode" },
+  ];
+
+  const screenshots = isDarkMode ? darkScreenshots : lightScreenshots;
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
 
@@ -159,8 +203,49 @@ export default function TaxRx() {
         </div>
       </section>
 
+      {/* Screenshots Gallery Section */}
+      <section className="py-24 bg-gray-50 border-y overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">See TaxRx in action</h2>
+              <p className="text-lg text-muted-foreground">Clean, detailed screens built for the self-employed. Light and dark modes included.</p>
+            </div>
+            <div className="flex items-center space-x-3 bg-white p-2 rounded-full shadow-sm border border-gray-200">
+              <Sun className={`h-4 w-4 ${!isDarkMode ? "text-primary" : "text-gray-400"}`} />
+              <button
+                role="switch"
+                aria-checked={isDarkMode}
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${isDarkMode ? "bg-primary" : "bg-gray-200"}`}
+              >
+                <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${isDarkMode ? "translate-x-6" : "translate-x-1"}`} />
+              </button>
+              <Moon className={`h-4 w-4 ${isDarkMode ? "text-primary" : "text-gray-400"}`} />
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
+              {screenshots.map((shot, i) => (
+                <div key={shot.id} className="flex justify-center snap-center shrink-0">
+                  <motion.div
+                    key={shot.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                  >
+                    <PhoneFrame src={shot.src} alt={shot.alt} />
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who It's For Section */}
-      <section className="py-24 bg-gray-50 border-y">
+      <section className="py-24 bg-white border-y">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
@@ -171,7 +256,7 @@ export default function TaxRx() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+            <div className="bg-gray-50 rounded-2xl border border-gray-200 p-8">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary mb-4">
                 1099 Freelancers
               </div>
@@ -189,7 +274,7 @@ export default function TaxRx() {
                 ))}
               </ul>
             </div>
-            <div className="bg-white rounded-2xl border border-accent/30 p-8 shadow-sm">
+            <div className="bg-gray-50 rounded-2xl border border-accent/30 p-8">
               <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-semibold text-accent mb-4">
                 S-Corp Owner-Operators
               </div>
@@ -212,7 +297,7 @@ export default function TaxRx() {
       </section>
 
       {/* Legal Links Section */}
-      <section className="py-16 bg-white border-b">
+      <section className="py-16 bg-gray-50 border-b">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <h3 className="text-lg font-semibold text-foreground mb-4">Legal</h3>
           <div className="flex items-center justify-center gap-6 text-sm">
