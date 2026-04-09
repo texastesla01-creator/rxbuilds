@@ -32,6 +32,12 @@ export function Navbar() {
             TaxRx
             <span className="text-[10px] font-bold bg-accent/10 text-accent px-1.5 py-0.5 rounded-full">SOON</span>
           </Link>
+          <Link
+            href="/lipidiq"
+            className={`text-sm font-medium transition-colors hover:text-blue-500 ${location === "/lipidiq" ? "text-blue-500" : "text-muted-foreground"}`}
+          >
+            LipidIQ
+          </Link>
         </nav>
 
         {/* Desktop CTA */}
@@ -70,6 +76,13 @@ export function Navbar() {
           >
             TaxRx
             <span className="text-[10px] font-bold bg-accent/10 text-accent px-1.5 py-0.5 rounded-full">SOON</span>
+          </Link>
+          <Link
+            href="/lipidiq"
+            onClick={() => setMenuOpen(false)}
+            className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${location === "/lipidiq" ? "text-blue-500 bg-blue-50" : "text-muted-foreground hover:text-blue-500 hover:bg-gray-50"}`}
+          >
+            LipidIQ
           </Link>
           <div className="pt-2 border-t">
             <a href="https://apps.apple.com/us/app/rxfinance/id6760018360" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
