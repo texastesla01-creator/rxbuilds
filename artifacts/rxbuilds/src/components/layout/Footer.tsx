@@ -25,6 +25,11 @@ export function Footer() {
                   <span className="ml-1.5 text-[10px] font-bold text-accent">(Coming Soon)</span>
                 </Link>
               </li>
+              <li>
+                <Link href="/lipidiq" className="text-sm text-muted-foreground hover:text-blue-500 transition-colors">
+                  LipidIQ
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="space-y-4">
