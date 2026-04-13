@@ -30,7 +30,6 @@ export function Navbar() {
             className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-accent ${location === "/taxrx" ? "text-accent" : "text-muted-foreground"}`}
           >
             TaxRx
-            <span className="text-[10px] font-bold bg-accent/10 text-accent px-1.5 py-0.5 rounded-full">SOON</span>
           </Link>
           <Link
             href="/lipidiq"
