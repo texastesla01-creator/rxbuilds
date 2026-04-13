@@ -11,6 +11,8 @@ import TaxRx from "@/pages/TaxRx";
 import LipidIQ from "@/pages/LipidIQ";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import EULA from "@/pages/EULA";
+import TaxRxPrivacy from "@/pages/TaxRxPrivacy";
+import TaxRxTerms from "@/pages/TaxRxTerms";
 import Contact from "@/pages/Contact";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ function Router() {
           <Route path="/lipidiq" component={LipidIQ} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/eula" component={EULA} />
+          <Route path="/taxrx-privacy" component={TaxRxPrivacy} />
+          <Route path="/taxrx-terms" component={TaxRxTerms} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
