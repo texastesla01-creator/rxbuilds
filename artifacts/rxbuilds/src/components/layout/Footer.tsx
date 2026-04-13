@@ -64,6 +64,11 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/qr" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  QR Codes
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
