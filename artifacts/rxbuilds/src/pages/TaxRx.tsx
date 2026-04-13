@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Calculator, TrendingUp, BarChart3, GitCompare, Sun, Moon } from "lucide-react";
 
@@ -301,23 +302,19 @@ export default function TaxRx() {
         <div className="container mx-auto px-4 md:px-6 max-w-3xl text-center">
           <h3 className="text-lg font-semibold text-foreground mb-4">Legal</h3>
           <div className="flex items-center justify-center gap-6 text-sm">
-            <a
-              href="https://tax-rx-mobile.replit.app/privacy"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/taxrx-privacy"
               className="text-muted-foreground hover:text-primary transition-colors underline underline-offset-4"
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className="text-gray-300">|</span>
-            <a
-              href="https://tax-rx-mobile.replit.app/terms"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/taxrx-terms"
               className="text-muted-foreground hover:text-primary transition-colors underline underline-offset-4"
             >
               Terms of Use
-            </a>
+            </Link>
           </div>
         </div>
       </section>
