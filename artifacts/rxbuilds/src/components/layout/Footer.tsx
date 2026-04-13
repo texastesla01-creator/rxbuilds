@@ -22,7 +22,6 @@ export function Footer() {
               <li>
                 <Link href="/taxrx" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                   TaxRx
-                  <span className="ml-1.5 text-[10px] font-bold text-accent">(Coming Soon)</span>
                 </Link>
               </li>
               <li>
