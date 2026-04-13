@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Calculator, TrendingUp, BarChart3, GitCompare, Clock, Sun, Moon } from "lucide-react";
+import { ArrowRight, CheckCircle2, Calculator, TrendingUp, BarChart3, GitCompare, Sun, Moon } from "lucide-react";
 
 // Dark mode screenshots
 import darkTax from "@assets/IMG_2901_1775699944673.jpeg";
@@ -63,7 +63,7 @@ export default function TaxRx() {
             >
               <div className="space-y-4">
                 <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-medium text-accent mb-2">
-                  Coming Soon to App Store
+                  Now on the App Store
                 </div>
                 <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl xl:text-7xl">
                   Tax<span className="text-accent">Rx</span>
@@ -74,22 +74,22 @@ export default function TaxRx() {
                 </p>
               </div>
 
-              {/* Coming Soon App Store Badge */}
+              {/* App Store Button */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <div className="relative group cursor-not-allowed">
-                  <div className="flex items-center gap-3 bg-gray-200 text-gray-400 border border-gray-300 rounded-xl px-6 py-3 opacity-60 select-none">
-                    <svg viewBox="0 0 24 24" className="h-7 w-7 fill-gray-400" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                    <div className="text-left">
-                      <div className="text-xs leading-none mb-0.5">Coming Soon</div>
-                      <div className="text-sm font-semibold leading-none">App Store</div>
-                    </div>
+                <a
+                  href="https://apps.apple.com/us/app/taxrx/id6761803370"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 bg-black text-white rounded-xl px-6 py-3 hover:bg-gray-900 transition-colors shadow-lg"
+                >
+                  <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  <div className="text-left">
+                    <div className="text-xs leading-none mb-0.5">Download on the</div>
+                    <div className="text-sm font-semibold leading-none">App Store</div>
                   </div>
-                  <span className="absolute -top-2 -right-2 bg-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                    SOON
-                  </span>
-                </div>
+                </a>
               </div>
 
               <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ export default function TaxRx() {
                   <CheckCircle2 className="h-4 w-4 mr-2 text-accent" /> iOS Exclusive
                 </div>
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2 text-accent" /> Launching Soon
+                  <CheckCircle2 className="h-4 w-4 mr-2 text-accent" /> Free 3-Day Trial
                 </div>
               </div>
             </motion.div>
@@ -327,20 +327,23 @@ export default function TaxRx() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            TaxRx is coming soon.
+            TaxRx is live on the App Store.
           </h2>
           <p className="text-white/80 text-lg mb-8">
-            Be among the first to know when it launches on the App Store.
+            Start your free 3-day trial today. No guessing — just your numbers.
           </p>
-          <div className="relative inline-block group cursor-not-allowed">
-            <div className="flex items-center gap-3 bg-white/20 text-white border border-white/30 rounded-xl px-8 py-4 opacity-70 select-none text-lg font-semibold">
-              <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              Coming Soon on App Store
-              <ArrowRight className="h-5 w-5" />
-            </div>
-          </div>
+          <a
+            href="https://apps.apple.com/us/app/taxrx/id6761803370"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-3 bg-white text-accent rounded-xl px-8 py-4 text-lg font-semibold hover:bg-white/90 transition-colors shadow-lg"
+          >
+            <svg viewBox="0 0 24 24" className="h-7 w-7 fill-accent" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download on the App Store
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </section>
 
