@@ -45,14 +45,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://tax-rx-mobile.replit.app/privacy" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                <Link href="/taxrx-privacy" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                   TaxRx Privacy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://tax-rx-mobile.replit.app/terms" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                <Link href="/taxrx-terms" className="text-sm text-muted-foreground hover:text-accent transition-colors">
                   TaxRx Terms
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
