@@ -41,11 +41,11 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <a href="https://apps.apple.com/us/app/rxfinance/id6760018360" target="_blank" rel="noreferrer">
+          <Link href="/qr">
             <Button className="bg-primary hover:bg-primary/90 text-white shadow-sm" data-testid="btn-download-nav">
               Download on App Store
             </Button>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile: hamburger */}
@@ -83,11 +83,11 @@ export function Navbar() {
             LipidIQ
           </Link>
           <div className="pt-2 border-t">
-            <a href="https://apps.apple.com/us/app/rxfinance/id6760018360" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>
+            <Link href="/qr" onClick={() => setMenuOpen(false)}>
               <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-sm">
                 Download on App Store
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       )}
