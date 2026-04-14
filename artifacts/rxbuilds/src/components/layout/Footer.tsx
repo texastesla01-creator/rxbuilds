@@ -29,6 +29,11 @@ export function Footer() {
                   LipidIQ
                 </Link>
               </li>
+              <li>
+                <Link href="/ais" className="text-sm text-muted-foreground hover:text-cyan-500 transition-colors">
+                  AIS Decision Tool
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="space-y-4">
