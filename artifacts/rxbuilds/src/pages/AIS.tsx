@@ -1,11 +1,13 @@
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
   CheckCircle2, ShieldCheck, Brain, Clock, BookOpen, Wifi,
   Zap, AlertTriangle, Star, ChevronRight, Activity, Stethoscope,
   FlaskConical, FileText
 } from "lucide-react";
+import appScreenshot from "@assets/Untitled_design_(34)_1776125718374.png";
 
-const APPSTORE_URL = "https://apps.apple.com/us/app/ais-decision-tool/id6746811356";
+const APPSTORE_URL = "https://apps.apple.com/us/app/ais-decision-tool-2026/id6760186011";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -106,6 +108,19 @@ export default function AIS() {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> 2026 AHA/ASA Guidelines</span>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── App Screenshot ────────────────────────────────── */}
+      <section className="pb-20 bg-gradient-to-b from-cyan-50 to-white">
+        <div className="container mx-auto px-4 md:px-6 flex justify-center">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
+            className="relative w-[260px] md:w-[300px] bg-[#111] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#111]"
+          >
+            <div className="absolute top-0 inset-x-0 h-5 bg-[#111] z-20 rounded-b-3xl mx-14 pointer-events-none" />
+            <img src={appScreenshot} alt="AIS Decision Tool 2026 app screenshot" className="w-full h-auto block" />
+          </motion.div>
         </div>
       </section>
 
@@ -301,9 +316,8 @@ export default function AIS() {
         <div className="container mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
           <span>AIS Decision Tool 2026 — For licensed clinicians only</span>
           <div className="flex flex-wrap items-center gap-4">
-            <a href="https://i-phone-builder.replit.app/privacy" target="_blank" rel="noreferrer" className="hover:text-gray-700 transition-colors">Privacy Policy</a>
-            <a href="https://i-phone-builder.replit.app/terms" target="_blank" rel="noreferrer" className="hover:text-gray-700 transition-colors">Terms of Use</a>
-            <a href="https://i-phone-builder.replit.app/support" target="_blank" rel="noreferrer" className="hover:text-gray-700 transition-colors">Support</a>
+            <Link href="/ais-privacy" className="hover:text-gray-700 transition-colors">Privacy Policy</Link>
+            <Link href="/ais-terms" className="hover:text-gray-700 transition-colors">Terms of Use</Link>
             <a href="mailto:texastesla01@gmail.com" className="hover:text-gray-700 transition-colors">Contact</a>
           </div>
         </div>
