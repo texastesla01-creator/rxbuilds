@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/Home";
+import RxFinance from "@/pages/RxFinance";
 import TaxRx from "@/pages/TaxRx";
 import LipidIQ from "@/pages/LipidIQ";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -31,6 +32,7 @@ function Router() {
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/rxfinance" component={RxFinance} />
           <Route path="/taxrx" component={TaxRx} />
           <Route path="/lipidiq" component={LipidIQ} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
