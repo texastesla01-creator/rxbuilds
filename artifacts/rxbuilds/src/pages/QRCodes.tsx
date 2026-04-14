@@ -29,6 +29,15 @@ const apps = [
     border: "border-indigo-100",
     badge: "text-indigo-700 bg-indigo-100",
   },
+  {
+    name: "AIS Tool",
+    tagline: "Acute ischemic stroke decision support",
+    url: "https://apps.apple.com/us/app/ais-decision-tool-2026/id6760186011",
+    color: "#00C8FF",
+    bg: "bg-cyan-50",
+    border: "border-cyan-100",
+    badge: "text-cyan-700 bg-cyan-100",
+  },
 ];
 
 export default function QRCodes() {
@@ -40,7 +49,7 @@ export default function QRCodes() {
           <p className="text-lg text-muted-foreground">Scan a QR code with your iPhone camera to download directly from the App Store.</p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {apps.map((app) => (
             <div
               key={app.name}
