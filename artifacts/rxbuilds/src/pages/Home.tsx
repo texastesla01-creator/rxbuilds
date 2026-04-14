@@ -1,253 +1,155 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Activity, DollarSign, Download, PieChart, BarChart3, Sun, Moon, Stethoscope } from "lucide-react";
+import { Link } from "wouter";
+import { ArrowRight, CheckCircle2, Stethoscope, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 
-// Real app screenshots
-import darkEntry from "@assets/IMG_2617_1775170283879.jpeg";
-import darkPL from "@assets/IMG_2620_1775170283880.jpeg";
-import dark401k from "@assets/IMG_2619_1775170283881.jpeg";
-import darkTax from "@assets/IMG_2618_1775170283881.jpeg";
-import lightEntry from "@assets/Untitled_design_(12)_1775170283881.png";
-import lightTax from "@assets/Untitled_design_(9)_1775170283882.png";
-import light401k from "@assets/Untitled_design_(8)_1775170283882.png";
-
-const PhoneFrame = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="relative w-[260px] md:w-[280px] bg-[#111] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#111] flex-shrink-0 snap-center">
-    <div className="absolute top-0 inset-x-0 h-5 bg-[#111] z-20 rounded-b-3xl mx-14 pointer-events-none"></div>
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-auto block"
-      loading="lazy"
-    />
-  </div>
-);
-
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.08 } }),
+};
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const handleLearnMore = () => {
-    document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const darkScreenshots = [
-    { id: 'dark-entry', src: darkEntry, alt: "1099 Command Center — dark mode" },
-    { id: 'dark-tax', src: darkTax, alt: "Tax Analysis — dark mode" },
-    { id: 'dark-401k', src: dark401k, alt: "401k & Expenses — dark mode" },
-    { id: 'dark-pl', src: darkPL, alt: "Profit & Loss — dark mode" },
-  ];
-
-  const lightScreenshots = [
-    { id: 'light-entry', src: lightEntry, alt: "1099 Command Center — light mode" },
-    { id: 'light-tax', src: lightTax, alt: "Tax Analysis — light mode" },
-    { id: 'light-401k', src: light401k, alt: "401k & Expenses — light mode" },
-  ];
-
-  const screenshots = isDarkMode ? darkScreenshots : lightScreenshots;
-
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-24 pb-32 md:pt-32 md:pb-40">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col justify-center space-y-8"
-            >
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-medium text-accent mb-2">
-                  Physician-Founded Fintech
-                </div>
-                <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl xl:text-6xl/none">
-                  Financial clarity for independent physicians.
-                </h1>
-                <p className="max-w-[600px] text-lg text-muted-foreground md:text-xl leading-relaxed">
-                  Track 1099 income, maximize solo 401(k) contributions, and optimize tax planning with precision. Built by doctors, for doctors.
-                </p>
+
+      {/* ── Hero ──────────────────────────────────────────── */}
+      <section className="pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-b from-blue-50/40 to-white">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+          <motion.div variants={fadeUp} initial="hidden" animate="show"
+            className="inline-block rounded-lg bg-accent/10 px-3 py-1 text-sm font-medium text-accent mb-5">
+            Physician-Founded · Clinical AI · Medical Fintech
+          </motion.div>
+          <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+            Clinical tools and financial software built by physicians, for physicians.
+          </motion.h1>
+          <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Founded by a board-certified vascular neurologist and stroke program director. Every product solves a problem we've lived firsthand — from stroke care to physician finance.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── Product Grid ──────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl space-y-6">
+
+          {/* RxFinance — Featured full-width card */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="bg-gradient-to-br from-[#0066CC] to-[#004fa3] rounded-3xl p-8 md:p-12 text-white grid md:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest bg-white/20 rounded-full px-3 py-1">iOS App</span>
+                <span className="text-xs font-medium text-white/50 uppercase tracking-widest">Featured</span>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">RxFinance</h2>
+              <p className="text-white/80 text-lg mb-5 max-w-2xl">
+                Income tracking and tax optimization for 1099 physicians. Built around the exact financial life of independent medical practice.
+              </p>
+              <ul className="grid sm:grid-cols-3 gap-3 mb-7">
+                {[
+                  "1099 income tracking across facilities",
+                  "Solo 401(k) contribution calculator",
+                  "Quarterly estimated tax optimizer",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm text-white/90">
+                    <CheckCircle2 className="h-4 w-4 text-white/50 flex-shrink-0 mt-0.5" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3 items-center">
                 <a href="https://apps.apple.com/us/app/rxfinance/id6760018360" target="_blank" rel="noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white h-14 px-8 text-lg shadow-md" data-testid="btn-download-hero">
-                    Download Free
-                    <Download className="ml-2 h-5 w-5" />
+                  <Button className="bg-white text-[#0066CC] hover:bg-gray-100 font-semibold">
+                    Try Free for 3 Days <ArrowRight className="ml-1 h-4 w-4" />
                   </Button>
                 </a>
-                <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg border-primary/20 text-primary hover:bg-primary/5" onClick={handleLearnMore} data-testid="btn-learn-more">
-                  Learn More
+                <Link href="/rxfinance">
+                  <span className="text-white/60 hover:text-white text-sm underline underline-offset-2 cursor-pointer transition-colors">
+                    View details →
+                  </span>
+                </Link>
+              </div>
+              <p className="text-white/40 text-xs mt-2">$9.99/mo after trial</p>
+            </div>
+            <div className="hidden md:flex items-center justify-center">
+              <DollarSign className="h-28 w-28 text-white/10" />
+            </div>
+          </motion.div>
+
+          {/* 3-column row: TaxRx · AIS · LipidIQ */}
+          <div className="grid gap-6 md:grid-cols-3">
+
+            {/* TaxRx */}
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1}
+              className="bg-teal-50 border border-teal-100 rounded-3xl p-7 flex flex-col">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-100 rounded-full px-3 py-1 mb-4 self-start">
+                iOS App
+              </span>
+              <h2 className="text-2xl font-bold text-foreground mb-2">TaxRx</h2>
+              <p className="text-muted-foreground text-sm mb-4">Tax intelligence for the self-employed physician.</p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {["1099 & W-2 income parsing", "Quarterly payment tracker", "Deduction optimizer"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-teal-500 flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://apps.apple.com/us/app/taxrx/id6761803370" target="_blank" rel="noreferrer">
+                <Button variant="outline" className="w-full border-teal-200 text-teal-700 hover:bg-teal-50/50">
+                  Download on App Store
                 </Button>
-              </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center">
-                  <CheckCircle2 className="h-4 w-4 mr-2 text-accent" /> iOS Exclusive
-                </div>
-              </div>
+              </a>
             </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative mx-auto lg:mx-0 flex justify-center lg:justify-end"
-            >
-              <PhoneFrame src={darkEntry} alt="RxFinance 1099 Command Center" />
-              
-              {/* Decorative elements */}
-              <div className="absolute -z-10 top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/5 to-accent/5 rounded-full blur-3xl"></div>
+
+            {/* AIS Decision Tool */}
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.2}
+              className="bg-cyan-50 border border-cyan-100 rounded-3xl p-7 flex flex-col">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-cyan-700 bg-cyan-100 rounded-full px-3 py-1 mb-4 self-start">
+                iOS App
+              </span>
+              <h2 className="text-2xl font-bold text-foreground mb-2">AIS Decision Tool 2026</h2>
+              <p className="text-muted-foreground text-sm mb-4">Acute ischemic stroke clinical decision support.</p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {["IVT & EVT eligibility in seconds", "Extended time window protocols", "Works offline at the bedside"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-cyan-500 flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://apps.apple.com/us/app/ais-decision-tool-2026/id6760186011" target="_blank" rel="noreferrer">
+                <Button variant="outline" className="w-full border-cyan-200 text-cyan-700 hover:bg-cyan-50/50">
+                  Download on App Store
+                </Button>
+              </a>
             </motion.div>
+
+            {/* LipidIQ */}
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.3}
+              className="bg-indigo-50 border border-indigo-100 rounded-3xl p-7 flex flex-col">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-indigo-700 bg-indigo-100 rounded-full px-3 py-1 mb-4 self-start">
+                iOS App
+              </span>
+              <h2 className="text-2xl font-bold text-foreground mb-2">LipidIQ</h2>
+              <p className="text-muted-foreground text-sm mb-4">Clinical lipid management decision support.</p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {["ASCVD risk calculation", "Statin & non-statin therapy guidance", "LDL goal achievement tracking"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-indigo-500 flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://apps.apple.com/us/app/lipidiq/id6760669194" target="_blank" rel="noreferrer">
+                <Button variant="outline" className="w-full border-indigo-200 text-indigo-700 hover:bg-indigo-50/50">
+                  Download on App Store
+                </Button>
+              </a>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-16 bg-gray-50 border-y">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-2xl font-bold mb-4">Start optimizing your practice today.</h2>
-          <div className="inline-block px-6 py-3 bg-white rounded-full shadow-sm border border-gray-100 text-lg font-medium text-foreground">
-            <span className="text-primary font-bold">3 Days Free</span> / $9.99 per month
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-24 md:py-32 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">Precision tools for complex finances</h2>
-            <p className="text-lg text-muted-foreground">Everything you need to manage your independent practice income, all in one place.</p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 transition-transform hover:-translate-y-1 hover:shadow-md">
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <DollarSign className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Income Tracking</h3>
-              <p className="text-muted-foreground">Effortlessly track 1099 payments from multiple facilities and identify missing payments.</p>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 transition-transform hover:-translate-y-1 hover:shadow-md">
-              <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                <PieChart className="h-6 w-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Solo 401(k) Manager</h3>
-              <p className="text-muted-foreground">Calculate and maximize your employer and employee contributions based on your exact net income.</p>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 transition-transform hover:-translate-y-1 hover:shadow-md">
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <BarChart3 className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Tax Optimizer</h3>
-              <p className="text-muted-foreground">Stay ahead of IRS deadlines with accurate quarterly estimated tax calculations and reminders.</p>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 transition-transform hover:-translate-y-1 hover:shadow-md">
-              <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                <Activity className="h-6 w-6 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Financial Dashboard</h3>
-              <p className="text-muted-foreground">A clean, clinical snapshot of your net worth, upcoming liabilities, and financial health.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Screenshots Gallery Section */}
-      <section className="py-24 bg-gray-50 border-y overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">A clinical interface for your finances</h2>
-              <p className="text-lg text-muted-foreground">Designed with the precision of a medical chart. No clutter, no distractions.</p>
-            </div>
-            <div className="flex items-center space-x-3 bg-white p-2 rounded-full shadow-sm border border-gray-200">
-              <Sun className={`h-4 w-4 ${!isDarkMode ? 'text-primary' : 'text-gray-400'}`} />
-              <Switch 
-                checked={isDarkMode} 
-                onCheckedChange={setIsDarkMode} 
-                data-testid="switch-theme"
-              />
-              <Moon className={`h-4 w-4 ${isDarkMode ? 'text-primary' : 'text-gray-400'}`} />
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="flex overflow-x-auto pb-8 -mx-4 px-4 gap-6 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
-              {screenshots.map((shot, i) => (
-                <div key={shot.id} className="flex justify-center snap-center shrink-0">
-                  <motion.div
-                    key={shot.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                  >
-                    <PhoneFrame src={shot.src} alt={shot.alt} />
-                  </motion.div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="py-24 bg-white border-y">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">Why Physicians Choose RxFinance</h2>
-            <p className="text-lg text-muted-foreground">Built by a physician, for physicians. Not a generic accounting tool.</p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm min-w-[560px]">
-              <thead>
-                <tr className="bg-primary text-white">
-                  <th className="p-4 text-left font-semibold text-sm w-1/2">Feature</th>
-                  <th className="p-4 text-center font-semibold text-sm">RxFinance</th>
-                  <th className="p-4 text-center font-semibold text-sm">QuickBooks</th>
-                  <th className="p-4 text-center font-semibold text-sm">Wave</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { name: "1099 Income Tracking",              rx: "full",    qb: "partial", wave: "partial" },
-                  { name: "Physician-Specific Tax Deductions", rx: "full",    qb: "none",    wave: "none"    },
-                  { name: "Multiple Income Stream Dashboard",  rx: "full",    qb: "partial", wave: "partial" },
-                  { name: "Investment Portfolio Tracking",     rx: "full",    qb: "none",    wave: "none"    },
-                  { name: "Estimated Tax Payment Alerts",      rx: "full",    qb: "partial", wave: "none"    },
-                  { name: "SE Tax Optimization",               rx: "full",    qb: "none",    wave: "none"    },
-                  { name: "Mobile-First iOS App",              rx: "full",    qb: "partial", wave: "partial" },
-                  { name: "Solo 401(k) Tracking",              rx: "full",    qb: "none",    wave: "none"    },
-                  { name: "Price",                             rx: "$9.99/mo", qb: "$30+/mo", wave: "Free*"  },
-                ].map((row, i) => {
-                  const cell = (val: string) => {
-                    if (val === "full")    return <span className="text-[#10b981] text-xl font-bold">✓</span>;
-                    if (val === "partial") return <span className="text-gray-300 text-xl">◐</span>;
-                    if (val === "none")    return <span className="text-gray-300 text-xl">✗</span>;
-                    return <span className="text-sm font-medium text-muted-foreground">{val}</span>;
-                  };
-                  return (
-                    <tr key={i} className={`border-b border-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
-                      <td className="p-4 text-sm font-medium text-foreground">{row.name}</td>
-                      <td className="p-4 text-center">{cell(row.rx)}</td>
-                      <td className="p-4 text-center">{cell(row.qb)}</td>
-                      <td className="p-4 text-center">{cell(row.wave)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder Story Section */}
+      {/* ── Founder Story ─────────────────────────────────── */}
       <section className="py-24 md:py-32 bg-[#080d18]">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
           <motion.div
@@ -257,7 +159,6 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="rounded-3xl bg-[#0f1629] border border-white/10 p-10 md:p-14 flex flex-col lg:flex-row gap-12 items-start"
           >
-            {/* Text */}
             <div className="flex-1 space-y-7">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
                 "I got tired of software that wasn't built for me."
@@ -273,8 +174,6 @@ export default function Home() {
                 That's what RxBuilds is. Every app in this portfolio started as a personal problem I couldn't find a solution for. If you're a physician who's felt the same frustration — these were built for you.
               </p>
             </div>
-
-            {/* Avatar / Right Column */}
             <div className="flex-shrink-0 flex flex-col items-center gap-5 lg:pt-4">
               <div className="h-24 w-24 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center shadow-xl">
                 <Stethoscope className="h-10 w-10 text-primary" />
@@ -289,54 +188,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-24 md:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 md:p-10 flex flex-col sm:flex-row gap-8 items-start"
-          >
-            <div className="flex-shrink-0">
-              <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center shadow-md">
-                <Stethoscope className="h-8 w-8 text-white" />
-              </div>
-            </div>
-            <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
-                Built by a physician, for physicians.
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Founded by a board-certified vascular neurologist, RxBuilds develops clinical decision support apps and AI-powered tools built from real medical experience. From stroke care to physician finance — every product solves a problem we've lived firsthand.
-              </p>
-              <div className="pt-2 space-y-1">
-                <p className="font-semibold text-foreground">RxBuilds LLC</p>
-                <p className="text-sm font-bold tracking-widest text-primary uppercase">
-                  CLINICAL AI · MEDICAL FINTECH
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">
-            Take control of your financial future
-          </h2>
-          <a href="https://apps.apple.com/us/app/rxfinance/id6760018360" target="_blank" rel="noreferrer">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 h-16 px-10 text-xl font-semibold shadow-lg" data-testid="btn-download-bottom">
-              Download on App Store
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </a>
-        </div>
-      </section>
     </div>
   );
 }
