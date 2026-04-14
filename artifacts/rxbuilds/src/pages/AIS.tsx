@@ -6,6 +6,11 @@ import {
   FlaskConical, FileText
 } from "lucide-react";
 import appScreenshot from "@assets/Untitled_design_(34)_1776125718374.png";
+import screenPatientDark from "@assets/Untitled_design_(17)_1776125811964.png";
+import screenPatientLight from "@assets/Untitled_design_(21)_1776125800252.png";
+import screenEVT from "@assets/Untitled_design_(19)_1776125804335.png";
+import screenPlan from "@assets/Untitled_design_(18)_1776125807060.png";
+import screenRefs from "@assets/Untitled_design_(22)_1776125797417.png";
 
 const APPSTORE_URL = "https://apps.apple.com/us/app/ais-decision-tool-2026/id6760186011";
 
@@ -111,16 +116,43 @@ export default function AIS() {
         </div>
       </section>
 
-      {/* ── App Screenshot ────────────────────────────────── */}
-      <section className="pb-20 bg-gradient-to-b from-cyan-50 to-white">
-        <div className="container mx-auto px-4 md:px-6 flex justify-center">
-          <motion.div
-            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
-            className="relative w-[260px] md:w-[300px] bg-[#111] rounded-[42px] shadow-2xl overflow-hidden border-[7px] border-[#111]"
-          >
-            <div className="absolute top-0 inset-x-0 h-5 bg-[#111] z-20 rounded-b-3xl mx-14 pointer-events-none" />
-            <img src={appScreenshot} alt="AIS Decision Tool 2026 app screenshot" className="w-full h-auto block" />
-          </motion.div>
+      {/* ── App Screenshot Gallery ─────────────────────────── */}
+      <section className="py-20 bg-[#080d18] overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 mb-10 text-center">
+          <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="text-xs font-semibold uppercase tracking-widest text-cyan-400 mb-3">
+            Inside the App
+          </motion.p>
+          <motion.h2 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1}
+            className="text-2xl md:text-3xl font-bold text-white">
+            Every decision, every protocol — at your fingertips
+          </motion.h2>
+        </div>
+
+        {/* Scrollable phone strip */}
+        <div className="flex gap-5 px-8 md:px-16 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          {[
+            { src: screenPatientLight, label: "Patient Inputs", sub: "Age · NIHSS · Onset time" },
+            { src: screenPatientDark, label: "Clinical Scores", sub: "Dark mode — NIHSS · mRS" },
+            { src: screenEVT, label: "EVT Eligibility", sub: "Time windows · Class ratings" },
+            { src: screenPlan, label: "Management Plan", sub: "Integrated care protocol" },
+            { src: appScreenshot, label: "AIS Guidelines AI", sub: "Claude-powered decision support" },
+            { src: screenRefs, label: "Evidence Base", sub: "2026 AHA/ASA Guideline + trials" },
+          ].map(({ src, label, sub }, i) => (
+            <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="show"
+              viewport={{ once: true }} custom={i * 0.08}
+              className="flex-none snap-center flex flex-col items-center gap-3">
+              <div className="relative w-[180px] md:w-[210px] bg-[#111] rounded-[36px] shadow-2xl overflow-hidden border-[6px] border-[#1a1a2e]">
+                <div className="absolute top-0 inset-x-0 h-4 bg-[#111] z-20 rounded-b-3xl mx-10 pointer-events-none" />
+                <img src={src} alt={label} className="w-full h-auto block" />
+              </div>
+              <div className="text-center">
+                <p className="text-sm font-semibold text-white">{label}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{sub}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
