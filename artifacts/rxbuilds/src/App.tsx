@@ -14,6 +14,7 @@ import EULA from "@/pages/EULA";
 import TaxRxPrivacy from "@/pages/TaxRxPrivacy";
 import TaxRxTerms from "@/pages/TaxRxTerms";
 import QRCodes from "@/pages/QRCodes";
+import AIS from "@/pages/AIS";
 import Contact from "@/pages/Contact";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ function Router() {
           <Route path="/taxrx-privacy" component={TaxRxPrivacy} />
           <Route path="/taxrx-terms" component={TaxRxTerms} />
           <Route path="/qr" component={QRCodes} />
+          <Route path="/ais" component={AIS} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
