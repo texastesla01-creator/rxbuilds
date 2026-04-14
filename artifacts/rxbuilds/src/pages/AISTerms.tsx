@@ -80,7 +80,7 @@ export default function AISTerms() {
         <section className="space-y-4 mb-8">
           <h2 className="text-xl font-bold text-foreground">7. Accuracy of Information</h2>
           <p className="text-muted-foreground">
-            While we strive to ensure the accuracy of all clinical content, medical guidelines evolve over time. The App is based on the 2026 AHA/ASA Guideline for the Early Management of Patients With Acute Ischemic Stroke and associated landmark trials. Users are responsible for staying current with evolving evidence and institutional guidelines.
+            While we strive to ensure the accuracy of all clinical content, medical guidelines evolve over time. The App is based on the 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke and associated landmark trials. Users are responsible for staying current with evolving evidence and institutional guidelines.
           </p>
         </section>
 
