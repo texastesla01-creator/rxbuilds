@@ -42,7 +42,9 @@ export default function Home() {
                 <span className="text-xs font-bold uppercase tracking-widest bg-white/20 rounded-full px-3 py-1">iOS App</span>
                 <span className="text-xs font-medium text-white/50 uppercase tracking-widest">Featured</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">RxFinance</h2>
+              <Link href="/rxfinance">
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 hover:underline underline-offset-4 cursor-pointer">RxFinance</h2>
+              </Link>
               <p className="text-white/80 text-lg mb-5 max-w-2xl">
                 Income tracking and tax optimization for 1099 physicians. Built around the exact financial life of independent medical practice.
               </p>
@@ -85,7 +87,9 @@ export default function Home() {
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-teal-700 bg-teal-100 rounded-full px-3 py-1 mb-4 self-start">
                 iOS App
               </span>
-              <h2 className="text-2xl font-bold text-foreground mb-2">TaxRx</h2>
+              <Link href="/taxrx">
+                <h2 className="text-2xl font-bold text-foreground mb-2 hover:text-teal-700 cursor-pointer transition-colors">TaxRx</h2>
+              </Link>
               <p className="text-muted-foreground text-sm mb-1">Tax intelligence for the self-employed.</p>
               <p className="text-muted-foreground text-sm mb-4">Purpose-built for 1099 freelancers and S-Corp owner-operators.</p>
               <ul className="space-y-2 mb-6 flex-1">
@@ -108,7 +112,9 @@ export default function Home() {
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-cyan-700 bg-cyan-100 rounded-full px-3 py-1 mb-4 self-start">
                 iOS App
               </span>
-              <h2 className="text-2xl font-bold text-foreground mb-2">AIS Decision Tool 2026</h2>
+              <Link href="/ais">
+                <h2 className="text-2xl font-bold text-foreground mb-2 hover:text-cyan-700 cursor-pointer transition-colors">AIS Decision Tool 2026</h2>
+              </Link>
               <p className="text-muted-foreground text-sm mb-4">Acute ischemic stroke clinical decision support.</p>
               <ul className="space-y-2 mb-6 flex-1">
                 {["IVT & EVT eligibility in seconds", "Extended time window protocols", "Works offline at the bedside"].map((f) => (
@@ -130,7 +136,9 @@ export default function Home() {
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-indigo-700 bg-indigo-100 rounded-full px-3 py-1 mb-4 self-start">
                 iOS App
               </span>
-              <h2 className="text-2xl font-bold text-foreground mb-2">LipidIQ</h2>
+              <Link href="/lipidiq">
+                <h2 className="text-2xl font-bold text-foreground mb-2 hover:text-indigo-700 cursor-pointer transition-colors">LipidIQ</h2>
+              </Link>
               <p className="text-muted-foreground text-sm mb-4">Clinical lipid management decision support.</p>
               <ul className="space-y-2 mb-6 flex-1">
                 {["ASCVD risk calculation", "Statin & non-statin therapy guidance", "LDL goal achievement tracking"].map((f) => (
