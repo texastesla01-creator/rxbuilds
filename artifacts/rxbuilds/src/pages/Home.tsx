@@ -247,6 +247,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Founder Story Section */}
+      <section className="py-24 md:py-32 bg-[#080d18]">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl bg-[#0f1629] border border-white/10 p-10 md:p-14 flex flex-col lg:flex-row gap-12 items-start"
+          >
+            {/* Text */}
+            <div className="flex-1 space-y-7">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+                "I got tired of software that wasn't built for me."
+              </h2>
+              <div className="w-12 h-0.5 bg-primary rounded-full" />
+              <p className="text-white/80 leading-[1.85] text-[17px]">
+                As a 1099 neurologist covering multiple hospitals, I couldn't find a single tool that understood my financial life. QuickBooks was built for small businesses. Tax apps didn't know what a solo 401(k) was. Stroke decision tools were buried in PDFs from 2019. I was duct-taping spreadsheets together at midnight after a shift.
+              </p>
+              <p className="text-white/80 leading-[1.85] text-[17px]">
+                Then AI changed what was possible. For the first time, a physician with no formal engineering background could describe exactly the software they needed — and build it. Not a workaround. Not a generic tool with a medical skin on it. The exact tool, built around the exact workflow.
+              </p>
+              <p className="text-white/80 leading-[1.85] text-[17px]">
+                That's what RxBuilds is. Every app in this portfolio started as a personal problem I couldn't find a solution for. If you're a physician who's felt the same frustration — these were built for you.
+              </p>
+            </div>
+
+            {/* Avatar / Right Column */}
+            <div className="flex-shrink-0 flex flex-col items-center gap-5 lg:pt-4">
+              <div className="h-24 w-24 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center shadow-xl">
+                <Stethoscope className="h-10 w-10 text-primary" />
+              </div>
+              <div className="text-center">
+                <p className="text-white font-semibold text-sm">Founder</p>
+                <p className="text-white/50 text-xs mt-1 tracking-widest uppercase">RxBuilds LLC</p>
+                <p className="text-white/50 text-xs tracking-widest uppercase">Vascular Neurology</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-24 md:py-32 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
