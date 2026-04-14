@@ -264,7 +264,7 @@ export default function Home() {
               </h2>
               <div className="w-12 h-0.5 bg-primary rounded-full" />
               <p className="text-white/80 leading-[1.85] text-[17px]">
-                As a 1099 neurologist covering multiple hospitals, I couldn't find a single tool that understood my financial life. QuickBooks was built for small businesses. Tax apps didn't know what a solo 401(k) was. Stroke decision tools were buried in PDFs from 2019. I was duct-taping spreadsheets together at midnight after a shift.
+                As a physician, I couldn't find a single tool that understood my financial life. QuickBooks was built for small businesses. Tax apps didn't know what a solo 401(k) was. Stroke decision tools were buried in PDFs from 2019. I was duct-taping spreadsheets together at midnight after a shift.
               </p>
               <p className="text-white/80 leading-[1.85] text-[17px]">
                 Then AI changed what was possible. For the first time, a physician with no formal engineering background could describe exactly the software they needed — and build it. Not a workaround. Not a generic tool with a medical skin on it. The exact tool, built around the exact workflow.
