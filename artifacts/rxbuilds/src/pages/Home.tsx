@@ -86,7 +86,8 @@ export default function Home() {
                 iOS App
               </span>
               <h2 className="text-2xl font-bold text-foreground mb-2">TaxRx</h2>
-              <p className="text-muted-foreground text-sm mb-4">Tax intelligence for the self-employed physician.</p>
+              <p className="text-muted-foreground text-sm mb-1">Tax intelligence for the self-employed.</p>
+              <p className="text-muted-foreground text-sm mb-4">Purpose-built for 1099 freelancers and S-Corp owner-operators.</p>
               <ul className="space-y-2 mb-6 flex-1">
                 {["1099 & W-2 income parsing", "Quarterly payment tracker", "Deduction optimizer"].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
