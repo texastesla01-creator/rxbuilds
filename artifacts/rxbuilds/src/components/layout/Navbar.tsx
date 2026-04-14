@@ -37,6 +37,12 @@ export function Navbar() {
           >
             LipidIQ
           </Link>
+          <Link
+            href="/ais"
+            className={`text-sm font-medium transition-colors hover:text-cyan-500 ${location === "/ais" ? "text-cyan-500" : "text-muted-foreground"}`}
+          >
+            AIS Tool
+          </Link>
         </nav>
 
         {/* Desktop CTA */}
@@ -81,6 +87,13 @@ export function Navbar() {
             className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${location === "/lipidiq" ? "text-blue-500 bg-blue-50" : "text-muted-foreground hover:text-blue-500 hover:bg-gray-50"}`}
           >
             LipidIQ
+          </Link>
+          <Link
+            href="/ais"
+            onClick={() => setMenuOpen(false)}
+            className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${location === "/ais" ? "text-cyan-500 bg-cyan-50" : "text-muted-foreground hover:text-cyan-500 hover:bg-gray-50"}`}
+          >
+            AIS Tool
           </Link>
           <div className="pt-2 border-t">
             <Link href="/qr" onClick={() => setMenuOpen(false)}>
