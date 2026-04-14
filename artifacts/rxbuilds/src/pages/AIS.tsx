@@ -62,7 +62,7 @@ const coreFeatures = [
   },
 ];
 
-const evidence = ["DAWN", "DEFUSE-3", "EXTEND", "WAKE-UP", "2026 AHA/ASA Stroke Guidelines"];
+const evidence = ["DAWN", "DEFUSE-3", "EXTEND", "WAKE-UP", "2026 Stroke Guidelines"];
 
 export default function AIS() {
   return (
@@ -110,7 +110,7 @@ export default function AIS() {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> iOS Exclusive</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> 3-Day Free Trial</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> Works Offline</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> 2026 AHA/ASA Guidelines</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-cyan-500" /> 2026 Stroke Guidelines</span>
             </motion.div>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function AIS() {
             { src: screenEVT, label: "EVT Eligibility", sub: "Time windows · Class ratings" },
             { src: screenPlan, label: "Management Plan", sub: "Integrated care protocol" },
             { src: appScreenshot, label: "AIS Guidelines AI", sub: "Claude-powered decision support" },
-            { src: screenRefs, label: "Evidence Base", sub: "2026 AHA/ASA Guideline + trials" },
+            { src: screenRefs, label: "Evidence Base", sub: "2026 Stroke Guideline + trials" },
           ].map(({ src, label, sub }, i) => (
             <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="show"
               viewport={{ once: true }} custom={i * 0.08}
@@ -217,7 +217,7 @@ export default function AIS() {
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { icon: Zap, label: "Guideline-cited answers", desc: "Every response references 2026 AHA/ASA stroke guidelines." },
+                { icon: Zap, label: "Guideline-cited answers", desc: "Every response references current 2026 stroke guidelines." },
                 { icon: Stethoscope, label: "Clinician-only scope", desc: "Restricted to acute ischemic stroke management topics." },
                 { icon: ShieldCheck, label: "Fully optional", desc: "All core features work without AI — activate only when needed." },
               ].map((item) => (
@@ -250,14 +250,14 @@ export default function AIS() {
                 AIS Decision Tool 2026 was designed by a board-certified vascular neurologist and neurohospitalist with direct bedside experience managing acute ischemic stroke.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Every decision pathway, contraindication screen, and dosing reference reflects current clinical practice and the 2026 AHA/ASA guidelines — not generic medical databases.
+                Every decision pathway, contraindication screen, and dosing reference reflects current clinical practice and 2026 stroke guidelines — not generic medical databases.
               </p>
             </div>
             <div className="space-y-4">
               {[
                 "Board-certified vascular neurologist",
                 "Neurohospitalist — point-of-care design",
-                "2026 AHA/ASA guideline aligned",
+                "2026 guideline aligned",
                 "Built for physicians, neurologists, emergency physicians, and APPs",
                 "Not a consumer health app",
               ].map((item) => (
